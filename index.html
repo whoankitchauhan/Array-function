@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Functions</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 10px;
+        padding: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      #show,
+      #len,
+      #add,
+      #rem,
+      #strr,
+      #idxRem {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      #show:hover,
+      #len:hover,
+      #add:hover,
+      #rem:hover,
+      #strr:hover,
+      #idxRem:hover {
+        background-color: #f3470d;
+      }
+
+      #atb,
+      #btb {
+        padding: 5px;
+      }
+
+      .function-container {
+        background-color: #fef964;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Array Functions</h1>
+
+    <div class="function-container">
+      <p>Do you Want to See All Students</p>
+      <button id="show">Yes</button>
+      <p>List of Students</p>
+      <p id="para">Showing :</p>
+    </div>
+
+    <div class="function-container">
+      <p>Do you Want to See Number of Students</p>
+      <button id="len">Yes</button> <br />
+      <p id="lenthing">Number of Students :</p>
+    </div>
+
+    <div class="function-container">
+      <p>Add New Student</p>
+      <label id="label">Enter Student Name:</label>
+      <input type="text" id="atb" />
+      <button id="add">Yes</button> <br />
+      <p id="adding">After Adding :</p>
+    </div>
+
+    <div class="function-container">
+      <p>Remove Student from last</p>
+      <button id="rem">Yes</button> <br />
+      <p id="removing">After Removing :</p>
+    </div>
+
+    <div class="function-container">
+      <p>Remove Student from index Number</p>
+      <label id="label">Enter Index Value:</label>
+      <input type="text" id="btb" />
+      <button id="idxRem">Yes</button> <br />
+      <p id="idxReming">After Removing Index value:</p>
+    </div>
+
+    <div class="function-container">
+      <p>Do You Want to Convert Students List to String</p>
+      <button id="strr">Yes</button> <br />
+      <p id="string">After Converting :</p>
+    </div>
+
+    <script>
+      var studentName;
+      var studentCount;
+      var indexvalue;
+      var studentList = [
+        "Ankit",
+        "Bhawna",
+        "Aryan",
+        "Kasak",
+        "Salil",
+        "Jyotsana",
+        "Mayank",
+        "Swati",
+        "Nora",
+      ];
+      document.getElementById("show").onclick = function () {
+        document.getElementById("para").innerHTML = "Showing: " + studentList;
+      };
+
+      document.getElementById("add").onclick = function () {
+        studentName = document.getElementById("atb").value;
+        studentList.push(studentName);
+        document.getElementById("adding").innerHTML =
+          "After Adding: " + studentList;
+        document.getElementById("atb").value = "";
+      };
+
+      document.getElementById("rem").onclick = function () {
+        studentList.pop();
+        document.getElementById("removing").innerHTML =
+          "After Removing: " + studentList;
+      };
+
+      document.getElementById("idxRem").onclick = function () {
+        indexvalue = document.getElementById("btb").value;
+        studentList.splice(indexvalue, 1);
+
+        document.getElementById("idxReming").innerHTML =
+          "After Removing Index value: " + studentList;
+        document.getElementById("btb").value = "";
+      };
+
+      document.getElementById("len").onclick = function () {
+        studentCount = studentList.length;
+        document.getElementById("lenthing").innerHTML =
+          "Number of Students: " + studentCount;
+      };
+
+      document.getElementById("strr").onclick = function () {
+        studentListStr = studentList.join("----");
+        document.getElementById("string").innerHTML =
+          "After Converting: " + studentListStr;
+      };
+    </script>
+  </body>
+</html>
+
+
